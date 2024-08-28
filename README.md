@@ -29,5 +29,6 @@ This repo exists to document myriad other ways to implement _Hello Y'All_ in as 
 
 For languages that compile bytecode or build outputs, please add a dedicated `.gitignore` file to the language folder to ignore output folders or files.
 
+Please prefer a `run.md` as instructions, rather than a `run.sh`
 
 [devto]: https://dev.to/taikedz/polydev-a-better-hello-world-for-polyglot-devs-37p2
