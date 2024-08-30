@@ -1,33 +1,63 @@
-# Hello Y'All !
+# Hi Net ! Advanced Project Spec
 
-Compare various programming languages like-for-like with an example program that's a touch better than "Hello World"
+The _Hi Net_ example-project is intended to exercise a few more moving parts of a language and its standard library. It's a network-oriented project, with the fundamentals of threading, subprocess parallelism, and resolution of configuration through environment variables, configuration files, and command line arguments.
 
-For this, we suggest here a basic application spec. The [full commentary is on dev.to/taikedz][devto], this repo comprises the individual examples as files.
+This is the "advanced project" branch of Hello Y'All. The specification has a wider scope to encompass a few extra feautres that should be expected of a language.
 
-You will need to set up the development environment of your choice to test each of these, however - there is no intention to cover basic setup instructions.
+This is intended to remain a CLI-oriented space, so some languages such as PHP or Jenkinsfile are not going to be expected - but if it's possible, then why not. Some further features of the spec make it impracticable for some languages such as shell but again, if you would like to see its shape in such languages, your contribution is welcome.
 
-## The Hello Y'All Spec
+## The Hi Net Spec
 
-The spec is very simple:
+There is a Client mode and a Server mode to Hi Net. The program is single, and operates in either mode on-launch
 
-* The example takes at least one command line argument, and gracefully handles the event of no-arguments
-* The argument handling should happen in a separate function in the main file, and only needs to use positional argument extraction where applicable
-* The example requires a function to be placed in a second file in a subfolder (the sub-function)
-* The sub-function takes a string parameter, and returns a string built of the input parameter and some extra text.
-* The example loops over CLI arguments, calling one at a time, passing each down to the sub-function in turn, and each time stores the returned value in a variable
-* The stored variables are printed, each on a single line, one directly after the other
-* Include the overall bare-minimum instructions include how to build the program (if necessary) and run it
-    * (assuming an existing installation of the interpreter/compiler/runtime)
+### Client mode
 
-True to the theme, the main content is usually a greeting text, and the parameters are typically names.
+The Hi Net client mode gets user input, and writes it over a network connection to a listening server. When the server returns the message, this is registered.
+
+* Client connects to a remote TCP port
+* The user is prompted for a name ; this is sent over with a message ID
+* The server will respond with a message ID and a greeting for the name.
+* Client registers the time taken to receive the response message in a file, and prints the response to output
+
+### Server mode
+
+* Server listens on a TCP port
+* Server spawns two workers
+    * each reads from a shared processing queue, and writes to a shared results queue
+    * each writes to the results queue with a random delay between 0.3 to 0.9 seconds after popping a message from the processing queue
+* Each worker produces a greeting on the name in the queue, with different outputs each
+* Server listens for incoming messages, nad places these in the share processing queue
+* Server gets messages from the results queue, and sends the message back to the original client
+
+### Configuration
+
+A single configuration file serves to provide overrides on the program defaults. Both modes' configurations reside in the same file. The client can ignore server confgiurations, and vice-versa.
+
+Configurations can also come from environment variables, which override configuration file values if clash.
+
+Configurations can also come from command line arguments, which override other configuration values if clash.
 
 ## Contributing
 
-You are very welcome to showcase the fun and ease of use of your favorite language(s) here ! The original examples all follow the same logic more or less. It is suggested to follow the same implementation format where possible, as it allows comparing different languages like-for-like.
+Please feel free to contribute your solutions to this specification. Make sure to annotate with comments, as this is intended to be a learning resource. If a new implementation is offered, it must implement the specification fully at time of submission.
 
-This repo exists to document myriad other ways to implement _Hello Y'All_ in as many languages as desired. They are example programs, nothing more. It is immenely preferable for the examples to be as idiomatic to each language as possible.
+If a part of the specifcation is unclear in such a way that it cannot be implemented, please do raise a change request to address it.
 
-For languages that compile bytecode or build outputs, please add a dedicated `.gitignore` file to the language folder to ignore output folders or files.
+All contributions are to be made under the GPLv3, with authors retaining the copyright on their contributions.
 
+### PRs
 
-[devto]: https://dev.to/taikedz/polydev-a-better-hello-world-for-polyglot-devs-37p2
+A PR change must be contained within 1 commit: please squash your commits before raising a PR. If you need to amend your PR commits, these must be squashed as well before the PR can be merged.
+
+Please DO NOT submit binaries. PRs with binary and compiled data will be rejected outright. Make use of `.gitignore` files at the top level of your implementation subfolder.
+
+### Linking out
+
+Code submitted must be standalone, and complete as-is. If you wish to include a link to a write-up on your implementation, please provide it in a corresponding `readme.md` at the top level of your implementation subfolder.
+
+All user-contributed links are the responsibility of their contributor(s). The maintainers of this repository hold no responsibility for where the links lead to.
+
+## Use of content
+
+The content in this repository is intended to provide a learning resource only. It is not recommended to use any of the code in this repository as an example of good-practice, much less copied to a deployed solution. This is advisory - you remain the maker of your own desitiny...!
+
