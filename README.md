@@ -6,6 +6,8 @@ For this, we suggest here a basic application spec. The [full commentary is on d
 
 You will need to set up the development environment of your choice to test each of these, however - there is no intention to cover basic setup instructions.
 
+[devto]: https://dev.to/taikedz/polydev-a-better-hello-world-for-polyglot-devs-37p2
+
 ## The Hello Y'All Spec
 
 The spec is very simple:
@@ -31,4 +33,15 @@ For languages that compile bytecode or build outputs, please add a dedicated `.g
 
 Please prefer a `run.md` as instructions, rather than a `run.sh`
 
-[devto]: https://dev.to/taikedz/polydev-a-better-hello-world-for-polyglot-devs-37p2
+### PRs
+
+A PR change must be contained within 1 commit: please squash your commits before raising a PR. If you need to amend your PR commits, these must be squashed as well before the PR can be merged.
+
+Please DO NOT submit binaries. PRs with binary and compiled data will be rejected outright. Make use of .gitignore files at the top level of your implementation subfolder.
+
+### Linking out
+
+Code submitted must be standalone, and complete as-is. If you wish to include a link to a write-up on your implementation, please provide it in a corresponding readme.md at the top level of your implementation subfolder.
+
+All user-contributed links are the responsibility of their contributor(s). The maintainers of this repository hold no responsibility for where the links lead to.
+
