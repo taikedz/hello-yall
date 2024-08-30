@@ -27,7 +27,7 @@ True to the theme, the main content is usually a greeting text, and the paramete
 
 You are very welcome to showcase the fun and ease of use of your favorite language(s) here ! The original examples all follow the same logic more or less. It is suggested to follow the same implementation format where possible, as it allows comparing different languages like-for-like.
 
-This repo exists to document myriad other ways to implement _Hello Y'All_ in as many languages as desired. They are example programs, nothing more. It is immenely preferable for the examples to be as idiomatic to each language as possible.
+This repo exists to document myriad other ways to implement _Hello Y'All_ in as many languages as desired. They are example programs, nothing more. It is immensely preferable for the examples to be as idiomatic to each language as possible. Fell free to add comments to the code to explain particularities of a language at the point they are used.
 
 For languages that compile bytecode or build outputs, please add a dedicated `.gitignore` file to the language folder to ignore output folders or files.
 
