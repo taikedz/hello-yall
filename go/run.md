@@ -1,3 +1,5 @@
+To install go, see <https://go.dev/doc/install>
+
 This folder had initially to be initalized with
 
     go mod init net.myname.greeter
