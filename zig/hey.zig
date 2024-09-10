@@ -27,7 +27,7 @@ pub fn main() !void {
     for(args[1..]) |name| {
         // Because hello.greet creates the data and chucks it back out, we pass in
         //   the allocator, so that we can retain responsibility for freeing
-        phrase = try hello.greet(name, allo);
+        phrase = try hello.greet(allo, name);
         defer allo.free(phrase);
 
         try stdout.print("{s}", .{phrase});
