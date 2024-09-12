@@ -31,7 +31,7 @@ This repo exists to document myriad other ways to implement _Hello Y'All_ in as 
 
 For languages that compile bytecode or build outputs, please add a dedicated `.gitignore` file to the language folder to ignore output folders or files.
 
-Please prefer a `run.md` as instructions, rather than a `run.sh`
+Please provide a `README.md` as instructions, rather than a `run.sh`
 
 ### PRs
 
