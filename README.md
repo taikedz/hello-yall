@@ -23,6 +23,15 @@ The spec is very simple:
 
 True to the theme, the main content is usually a greeting text, and the parameters are typically names.
 
+## Runtime
+
+The original author uses Ubuntu, and basic instructions primarily target this system. It should be easy to achieve equivalent runtime bases on Windows and Mac:
+
+* WSL Ubuntu environment is [easy to add on Windows](https://ubuntu.com/desktop/wsl) as an application in Windows on Win10 and Win11
+* Mac users can usually substitute instructions using `apt` in preference for `brew` ([from Homebrew](https://brew.sh/))
+
+Please do not add GUI and IDE-specific instructions, there will be no end to them ...
+
 ## Contributing
 
 You are very welcome to showcase the fun and ease of use of your favorite language(s) here ! The original examples all follow the same logic more or less. It is suggested to follow the same implementation format where possible, as it allows comparing different languages like-for-like.
