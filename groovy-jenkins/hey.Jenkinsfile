@@ -1,5 +1,5 @@
 #!groovy
-# (shebang for syntax highlighting help)
+// (shebang for syntax highlighting help)
 
 node("runner-node") {
     // "runner-node" should be an agent or label defined on your Jenkins server
