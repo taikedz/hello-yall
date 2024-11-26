@@ -4,6 +4,9 @@ import (
     "fmt"
     "os"
     "log"
+
+    // We import the package files altogether
+    // NOTE it self-declares the package name as "greeter" not "stuff"
     "net.myname.greeter/src/stuff"
 )
 
@@ -13,7 +16,8 @@ func main() {
     }
 
     for _, person := range os.Args[1:] {
-        var phrase string = stuff.Greet(person)
+        // package "greeter" from the src/stuff/ folder
+        var phrase string = greeter.Greet(person)
         fmt.Println(phrase)
     }
 }
